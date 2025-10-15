@@ -14,7 +14,7 @@ type Server struct {
 
 func NewServer(port int, handler Handler, logger *slog.Logger) Server {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/hello-world", handler.getHello)
+	mux.HandleFunc("GET /hello-world", handler.getHello)
 
 	return Server{
 		addr:   fmt.Sprintf(":%d", port),
